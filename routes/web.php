@@ -19,7 +19,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/hello','HelloController@index')->name('hello');
-Route::post('/hello','HelloController@index');
+Route::get('/hello/{id}','HelloController@index')->name('hello');
+// Route::post('/hello','HelloController@index');
 // Route::post('/hello/other','HelloController@other');
 // Route::get('/sample','Sample\SampleController@index') ->name('sample'); 

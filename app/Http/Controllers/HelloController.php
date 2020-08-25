@@ -5,22 +5,16 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Storage;
+use App\MyClasses\MyService;
 
 class HelloController extends Controller
 {
-    public function index(Request $request, Response $response) {
-        $name = $request -> query('name');
-        $mail = $request -> query('mail');
-        $age = $request -> query('age');
-        $msg = $name. ',' .$mail . ',' .$age;
-        $keys = ['名前','メール','年齢'];
-        $values = [$name,$mail,$age];
+    public function index(int $id = -1) {
+        $myservice = app() -> makeWith('App\MyClasses\MyService',['id' => $id]);
         $data = [
-            'msg' => $msg,
-            'keys' => $keys,
-            'values' => $values,
+            'msg' => $myservice ->say($id),
+            'data' => $myservice -> alldata() 
         ];
-        $request -> flash();
         return view('hello.index',$data);
     }
 
