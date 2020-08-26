@@ -12,20 +12,5 @@ use App\Event\PersonEvent;
 
 class HelloController extends Controller
 {
-    public function index() {
-        return view('hello.index');
-    }
-
-    public function send() {
-        $id = $request -> input('id');
-        $person = Person::find($id);
-
-        event(new PersonEvent($person));
-        $data = [
-            'input' => '',
-            'msg' => 'id=' . $id,
-            'data' => [$person], 
-        ];
-        return view('hello.index',$data);
-    }
+    
 }
