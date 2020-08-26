@@ -18,10 +18,3 @@ use App\Http\Middleware\HelloMiddleware;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/hello','HelloController@index')->name('hello');
-Route::get('/hello/{id}/{name}','HelloController@save');
-
-// Route::post('/hello','HelloController@index');
-// Route::post('/hello/other','HelloController@other');
-// Route::get('/sample','Sample\SampleController@index') ->name('sample'); 
