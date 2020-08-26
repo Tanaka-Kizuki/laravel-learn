@@ -8,17 +8,17 @@
 </head>
 <body>
   <h1>Hello/Index</h1>
-  <p>{{$msg}}</p>
-  <table border="1">
-  @foreach($data as $item)
-  <tr>
-    <th>{{$item->id}}</th>
-    <th>{{$item->name}}</th>
-    <th>{{$item->mail}}</th>
-    <th>{{$item->age}}</th>
-    <th>{{$item->name_and_age}}</th>
-  </tr>
-  @endforeach
-  </table>
+  <form action="/hello" method="post">
+    <table>
+    @csrf
+      <tr>
+        <th>id<input type="text" name="id">
+        <th>Name<input type="text" name="name">
+        <th>Mail<input type="text" name="mail">
+        <th>Age<input type="text" name="age">
+      </tr>
+    </table>
+    <input type="submit">
+  </form>
 </body>
 </html>
