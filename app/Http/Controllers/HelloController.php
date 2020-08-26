@@ -12,5 +12,10 @@ use App\Event\PersonEvent;
 
 class HelloController extends Controller
 {
-    
+    public function index() {
+      $data = [
+        'msg' => 'this is Vue.js application.',
+      ];
+      return view('hello.index',$data);
+    }
 }
